@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiance Restorers - Contact Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Fixed Navigation Bar */
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0066cc;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 70px;
+        }
+
+        .fixed-nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide links by default */
+                flex-direction: column;
+                background-color: #0066cc;
+                position: absolute;
+                top: 70px; /* Below the nav bar */
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex; /* Show links when active */
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Contact Section */
+        .contact-container {
+            margin-top: 100px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-container h1 {
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+
+        .contact-container p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Contact Details */
+        .contact-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .contact-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .contact-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h2 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media screen and (min-width: 768px) {
+            .contact-details {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="fixed-nav">
+        <div class="logo">Radiance Restorers</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <h1>Contact Radiance Restorers</h1>
+        <p>
+            We are proud to offer our exceptional cleaning services to clients in New York City and New Jersey. 
+            Reach out to us through the following options:
+        </p>
+    </div>
+
+    <div class="contact-details">
+        <div class="contact-card">
+            <i class="fas fa-phone"></i>
+            <h2>Phone</h2>
+            <p>New York: (646) 724-8338</p>
+            <p>New Jersey: (732) 555-1234</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h2>Email</h2>
+            <p>info@radiancerestorers.com</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h2>Locations</h2>
+            <p>New York City, NY</p>
+            <p>Newark, NJ</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-clock"></i>
+            <h2>Hours</h2>
+            <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p>Sat-Sun: 9:00 AM - 4:00 PM</p>
+        </div>
+    </div>
+
+    <script>
+        // Observer to trigger card animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        // Select all contact cards
+        const contactCards = document.querySelectorAll('.contact-card');
+        contactCards.forEach(card => observer.observe(card));
+
+        // Function to toggle menu visibility
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

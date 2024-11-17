@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiance Restorers - About Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Fixed Navigation Bar */
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0066cc;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 70px;
+        }
+
+        .fixed-nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide links by default */
+                flex-direction: column;
+                background-color: #0066cc;
+                position: absolute;
+                top: 70px; /* Below the nav bar */
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex; /* Show links when active */
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* About Us Section */
+        .about-container {
+            margin-top: 100px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-container h1 {
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+
+        .about-container p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Cards Section */
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .card.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px; /* Set uniform height */
+            object-fit: cover; /* Ensure no distortion */
+            border-radius: 10px;
+        }
+
+        .card h2 {
+            color: #0066cc;
+            margin: 10px 0;
+        }
+
+        /* Responsive Design */
+        @media screen and (min-width: 600px) {
+            .card-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-container p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .fixed-nav {
+                padding: 20px 40px;
+                height: 80px;
+            }
+
+            .fixed-nav .logo {
+                font-size: 1.8rem;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed-nav">
+        <div class="logo">Radiance Restorers</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-container">
+        <h1>About Radiance Restorers</h1>
+        <p>
+            Radiance Restorers is dedicated to delivering exceptional cleaning services to both residential and commercial spaces. 
+            With years of experience, we pride ourselves on ensuring our clients enjoy clean, healthy, and welcoming environments.
+        </p>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <img src="https://www.radiancerestoration.net/uploads/8/9/5/1/89516165/rugrestoration_orig.jpg" alt="Professional Team">
+            <h2>Professional Team</h2>
+            <p>Our team consists of experienced professionals passionate about cleaning and committed to exceeding expectations.</p>
+        </div>
+        <div class="card">
+            <img src="https://lirp.cdn-website.com/7d0d0d3a/dms3rep/multi/opt/eco+friendly+cleaning-1920w.jpeg" alt="Eco-Friendly Solutions">
+            <h2>Eco-Friendly Solutions</h2>
+            <p>We use environmentally friendly products to ensure safety and sustainability in every space we clean.</p>
+        </div>
+        <div class="card">
+            <img src="https://blog.usetada.com/hubfs/Blog%20Template/Post/EN/image%201%20(1).png" alt="Customer Satisfaction">
+            <h2>Customer Satisfaction</h2>
+            <p>Your satisfaction is our priority. We strive to provide top-notch cleaning services that meet your needs.</p>
+        </div>
+        <div class="card">
+            <img src="https://img-cdn.inc.com/image/upload/f_webp,q_auto,c_fit/vip/2024/10/flexible-work-schedules-inc-GettyImages-1468302529.jpg" alt="Flexible Scheduling">
+            <h2>Flexible Scheduling</h2>
+            <p>We work around your schedule, offering flexible options to make your cleaning experience stress-free.</p>
+        </div>
+    </div>
+
+    <script>
+        // Observer to trigger card animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        // Select all cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => observer.observe(card));
+
+        // Function to toggle menu visibility
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

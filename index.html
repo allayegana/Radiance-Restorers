@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiance Restorers - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Fixed Navigation Bar */
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0066cc;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 70px;
+        }
+
+        .fixed-nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide links by default */
+                flex-direction: column;
+                gap: 10px;
+                background-color: #0066cc;
+                padding: 10px 0;
+                position: absolute;
+                top: 70px; /* Below the nav bar */
+                left: 0;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: flex; /* Show links when active */
+            }
+
+            .hamburger {
+                display: flex; /* Show hamburger on mobile */
+            }
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            margin-top: 70px; /* Adjust to sit below the fixed nav */
+            background-color: #f3f3f3;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .contact-info span {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 80px 20px;
+            margin-top: 20px;
+            flex: 1; /* Allows the grid to expand and push the footer down */
+        }
+
+        /* Card Styles */
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card h2 {
+            color: #0066cc;
+            margin-top: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media screen and (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed-nav">
+        <div class="logo">Radiance Restorers</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Info Section -->
+    <div class="contact-info">
+        <span>📞 Phone: <a href="tel:6467248338">(646) 724-8338</a></span>
+        <span>📧 Email: <a href="mailto:info@radiancerestorers.com">info@radiancerestorers.com</a></span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="grid-container">
+        <div class="card">
+            <img src="https://www.classaclean.com/wp-content/uploads/2023/02/mixed-race-janitors-doing-spring-cleaning-of-house-2021-12-09-06-24-26-utc-scaled.jpg" alt="Residential Cleaning">
+            <h2>Residential Cleaning</h2>
+            <p>We offer top-notch cleaning services for your home.</p>
+        </div>
+        <div class="card">
+            <img src="https://intocleaning.co.uk/wp-content/uploads/2017/08/51450053_l_Office-Cleaning.jpg" alt="Commercial Cleaning">
+            <h2>Commercial Cleaning</h2>
+            <p>Keep your workplace spotless with our professional services.</p>
+        </div>
+        <div class="card">
+            <img src="https://terryhome.ca/wp-content/uploads/2015/03/Terry-Home-Home-Cleaning.jpg" alt="Carpet Cleaning">
+            <h2>Carpet Cleaning</h2>
+            <p>Expert cleaning to make your carpets look brand new.</p>
+        </div>
+        <div class="card">
+            <img src="https://lunaclean.co.uk/wp-content/uploads/2015/03/Depositphotos_14220979_m.jpg" alt="Deep Cleaning">
+            <h2>Deep Cleaning</h2>
+            <p>Thorough cleaning services for a healthier space.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Radiance Restorers. All Rights Reserved.</p>
+        <p>
+            Follow us on 
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>, 
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>, and 
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>.
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
